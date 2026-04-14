@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SN Computer Coding New Year Surprise</title>
+    <style>
+        :root {
+            --primary: #7d0000;
+            --gold: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+        }
+
+        body, html {
+            margin: 0; padding: 0; height: 100%;
+            background: #0a0a0a;
+            display: flex; justify-content: center; align-items: center;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+            perspective: 2000px;
+        }
+
+        .gift-world {
+            position: relative;
+            width: 340px;
+            height: 480px;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .ribbon {
+            position: absolute;
+            top: 50%; left: -5%;
+            width: 110%; height: 50px;
+            background: var(--gold);
+            z-index: 10;
+            transform: translateY(-50%) translateZ(40px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.5);
+            transition: 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+            display: flex; justify-content: center; align-items: center;
+            color: #4a3707; font-weight: bold; font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .gate {
+            position: absolute;
+            top: 0; width: 50%; height: 100%;
+            background: var(--primary);
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 5;
+            transform-style: preserve-3d;
+            box-shadow: inset 0 0 60px rgba(0,0,0,0.7);
+            border: 1px solid #4a0000;
+        }
+
+        .gate-left { left: 0; transform-origin: left; }
+        .gate-right { right: 0; transform-origin: right; }
+
+        /* --- BACKGROUND IMAGE APPLIED HERE --- */
+        .content-chamber {
+            position: absolute;
+            inset: 0;
+            background-image: url('aluth.jpg'); /* Your image as background */
+            background-size: cover;
+            background-position: center;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            padding: 25px; text-align: center;
+            transform: translateZ(-50px) scale(0.8);
+            transition: all 0.9s ease 0.4s;
+            opacity: 0;
+            border: 8px solid #f8f8f8;
+        }
+
+        /* Overlay to make text pop against the background art */
+        .text-overlay {
+            background: rgba(255, 255, 255, 0.7); 
+            padding: 15px;
+            border-radius: 15px;
+            backdrop-filter: blur(2px);
+        }
+
+        .open .ribbon { transform: translateY(-50%) translateZ(100px) scaleX(0); opacity: 0; }
+        .open .gate-left { transform: rotateY(-145deg); }
+        .open .gate-right { transform: rotateY(145deg); }
+        .open .content-chamber { transform: translateZ(30px) scale(1); opacity: 1; }
+
+        .bulb-icon { 
+            width: 60px; 
+            height: 60px; 
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 10px rgb(255, 217, 0));
+        }
+
+        .greeting-si { font-size: 20px; color: var(--primary); margin: 5px 0; }
+        .greeting-ta { font-size: 16px; color: #b38728; margin: 0; }
+        .divider { width: 40px; height: 2px; background: var(--gold); margin: 15px auto; }
+
+        .main-message {
+            font-size: 15px;
+            color: #222;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .footer-brand {
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding-top: 10px;
+            width: 100%;
+            font-size: 10px;
+            color: #555;
+            letter-spacing: 1px;
+        }
+
+        .brand-name {
+            display: block;
+            color: #004a99;
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 3px;
+        }
+
+        .hint {
+            position: absolute; bottom: -40px; left: 50%; transform: translateX(-50%);
+            color: #d4af37; font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gift-world" onclick="this.classList.toggle('open')">
+        
+        <div class="ribbon">TAP TO OPEN</div>
+
+        <div class="gate gate-left"></div>
+        <div class="gate gate-right"></div>
+
+        <div class="content-chamber">
+            <div class="text-overlay">
+                <img src="https://cdn-icons-png.flaticon.com/512/702/702797.png" alt="Lightbulb" class="bulb-icon">
+                
+                <h1 class="greeting-si">සුභ අලුත් අවුරුද්දක් වේවා !</h1>
+                <h2 class="greeting-ta">Sinhala And Tamil New Year !</h2>
+
+                <div class="divider"></div>
+
+                <p class="main-message">
+                    Wishing you a bright year filled with <br> 
+                    <strong>happiness and new success!</strong>
+                </p>
+
+                <div class="footer-brand">
+                    FROM
+                    <span class="brand-name">SN Computer Coding 💻</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hint">A NEW YEAR SURPRISE</div>
+    </div>
+
+</body>
+</html>
